@@ -8,9 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   initMobileMenu();
   initScrollReveal();
+  initStatsCounter();
   initClientsCarousel();
   initServicesPanel();
   initCaseModal();
+  initPlanSelector();
   initWhatsappFloat();
   initFooterYear();
   initHeroSignal();
@@ -66,43 +68,20 @@ function initNavbar() {
 }
 
 /* -------------------------------------------------------------------------
- * 2. MENU MOBILE: abre/fecha o menu off-canvas e overlay
+ * 2. MENU MOBILE: o botão hambúrguer e a expansão já são controlados pelo
+ *    componente collapse do Bootstrap (data-bs-toggle). Aqui apenas
+ *    fechamos o menu automaticamente ao clicar em um link.
  * ---------------------------------------------------------------------- */
 function initMobileMenu() {
-  const toggler = document.getElementById('navToggler');
-  const navLinks = document.getElementById('navLinks');
-  const overlay = document.getElementById('navOverlay');
-  if (!toggler || !navLinks || !overlay) return;
+  const collapseEl = document.getElementById('navLinks');
+  if (!collapseEl || typeof bootstrap === 'undefined') return;
 
-  const closeMenu = () => {
-    navLinks.classList.remove('is-open');
-    overlay.classList.remove('is-visible');
-    toggler.setAttribute('aria-expanded', 'false');
-    document.body.style.overflow = '';
-  };
-
-  const openMenu = () => {
-    navLinks.classList.add('is-open');
-    overlay.classList.add('is-visible');
-    toggler.setAttribute('aria-expanded', 'true');
-    document.body.style.overflow = 'hidden';
-  };
-
-  toggler.addEventListener('click', () => {
-    const isOpen = navLinks.classList.contains('is-open');
-    isOpen ? closeMenu() : openMenu();
-  });
-
-  overlay.addEventListener('click', closeMenu);
-
-  // Fecha o menu ao clicar em qualquer link (scroll suave nativo do CSS)
-  navLinks.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', closeMenu);
-  });
-
-  // Fecha o menu com a tecla Esc
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
+  collapseEl.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (collapseEl.classList.contains('show')) {
+        bootstrap.Collapse.getOrCreateInstance(collapseEl).hide();
+      }
+    });
   });
 }
 
@@ -131,6 +110,59 @@ function initScrollReveal() {
   );
 
   revealEls.forEach((el) => observer.observe(el));
+}
+
+/* -------------------------------------------------------------------------
+ * 3b. CONTADORES ANIMADOS: anima os números da barra de estatísticas quando
+ *     ela entra na viewport (prova social logo após o Hero)
+ * ---------------------------------------------------------------------- */
+function initStatsCounter() {
+  const statEls = document.querySelectorAll('.stat-value[data-count-to]');
+  if (!statEls.length) return;
+
+  const DURATION = 1400; // ms
+
+  const animateCount = (el) => {
+    const target = parseFloat(el.dataset.countTo);
+    const decimals = parseInt(el.dataset.decimals || '0', 10);
+    const suffix = el.dataset.suffix || '';
+    const start = performance.now();
+
+    const step = (now) => {
+      const progress = Math.min((now - start) / DURATION, 1);
+      // easeOutCubic para uma desaceleração suave no final
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const value = target * eased;
+      el.textContent = value.toFixed(decimals) + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = target.toFixed(decimals) + suffix;
+      }
+    };
+
+    requestAnimationFrame(step);
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    statEls.forEach(animateCount);
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  statEls.forEach((el) => observer.observe(el));
 }
 
 /* -------------------------------------------------------------------------
@@ -318,7 +350,85 @@ function initCaseModal() {
 }
 
 /* -------------------------------------------------------------------------
- * 7. WHATSAPP FLUTUANTE: reposiciona quando o rodapé entra na tela
+ * 7. PLANOS: sistema de seleção — o cliente escolhe um plano (ou monta o
+ *    personalizado com reels/stories/extras) e um único botão solicita o
+ *    orçamento via WhatsApp já com a escolha preenchida na mensagem.
+ * ---------------------------------------------------------------------- */
+function initPlanSelector() {
+  const WHATSAPP_NUMBER = '5547900000000';
+
+  const radios = document.querySelectorAll('input[name="plano"]');
+  const cards = document.querySelectorAll('.plan-card');
+  const nameEl = document.getElementById('planSelectedName');
+  const ctaBtn = document.getElementById('planCtaBtn');
+  const personalizadoRadio = document.getElementById('planoPersonalizadoRadio');
+
+  if (!radios.length || !ctaBtn) return;
+
+  const customFields = [
+    document.getElementById('customReels'),
+    document.getElementById('customStories'),
+    document.getElementById('customTrafego'),
+    document.getElementById('customLanding'),
+    document.getElementById('customAutomacoes'),
+    document.getElementById('customCaptacao'),
+  ].filter(Boolean);
+
+  const buildMessage = () => {
+    const selected = document.querySelector('input[name="plano"]:checked');
+    const planName = selected ? selected.value : 'Básico';
+
+    if (planName === 'Personalizado') {
+      const reels = document.getElementById('customReels')?.value || '0';
+      const stories = document.getElementById('customStories')?.value || '0';
+      const extraFields = [
+        ['customTrafego', 'Tráfego pago'],
+        ['customLanding', 'Landing page'],
+        ['customAutomacoes', 'Automações'],
+        ['customCaptacao', 'Captação sob demanda'],
+      ];
+      const extras = extraFields
+        .filter(([id]) => document.getElementById(id)?.checked)
+        .map(([, label]) => label);
+
+      let message = `Olá! Quero montar um plano personalizado com ${reels} reels e ${stories} stories por mês`;
+      if (extras.length) message += `, incluindo: ${extras.join(', ')}`;
+      return `${message}.`;
+    }
+
+    return `Olá! Quero solicitar um orçamento do plano ${planName}.`;
+  };
+
+  const updateSelection = () => {
+    const selected = document.querySelector('input[name="plano"]:checked');
+    const planName = selected ? selected.value : 'Básico';
+
+    cards.forEach((card) => {
+      const input = card.querySelector('.plan-radio');
+      card.classList.toggle('is-selected', Boolean(input && input.checked));
+    });
+
+    if (nameEl) nameEl.textContent = planName;
+    ctaBtn.setAttribute('href', `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildMessage())}`);
+  };
+
+  radios.forEach((radio) => radio.addEventListener('change', updateSelection));
+
+  // Interagir com qualquer campo do plano personalizado já seleciona esse plano
+  customFields.forEach((field) => {
+    ['input', 'change'].forEach((evt) => {
+      field.addEventListener(evt, () => {
+        if (personalizadoRadio) personalizadoRadio.checked = true;
+        updateSelection();
+      });
+    });
+  });
+
+  updateSelection();
+}
+
+/* -------------------------------------------------------------------------
+ * 8. WHATSAPP FLUTUANTE: reposiciona quando o rodapé entra na tela
  * ---------------------------------------------------------------------- */
 function initWhatsappFloat() {
   const floatBtn = document.getElementById('whatsappFloat');
@@ -346,7 +456,7 @@ function initWhatsappFloat() {
 }
 
 /* -------------------------------------------------------------------------
- * 8. RODAPÉ: atualiza o ano corrente automaticamente
+ * 9. RODAPÉ: atualiza o ano corrente automaticamente
  * ---------------------------------------------------------------------- */
 function initFooterYear() {
   const yearEl = document.getElementById('currentYear');
@@ -356,7 +466,7 @@ function initFooterYear() {
 }
 
 /* -------------------------------------------------------------------------
- * 9. HERO SIGNAL: gera a rede de pontos conectados (elemento de assinatura)
+ * 10. HERO SIGNAL: gera a rede de pontos conectados (elemento de assinatura)
  * ---------------------------------------------------------------------- */
 function initHeroSignal() {
   const svg = document.getElementById('heroSignal');

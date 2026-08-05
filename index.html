@@ -82,33 +82,35 @@
        NAVBAR
   ========================================================== -->
   <header>
-    <nav class="navbar-connect" id="mainNavbar" aria-label="Navegação principal">
-      <div class="nav-inner">
+    <nav class="navbar navbar-expand-lg navbar-connect" id="mainNavbar" aria-label="Navegação principal">
+      <div class="container-custom nav-inner">
         <a href="#hero" class="navbar-brand-connect" aria-label="Connect Produções e Marketing — início">
           <img src="assets/logo/logo-white.svg" data-logo-light="assets/logo/logo-white.svg" data-logo-dark="assets/logo/logo.svg" alt="Logotipo da Connect Produções e Marketing" width="150" height="34">
         </a>
 
-        <button class="navbar-toggler-connect" id="navToggler" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="navLinks">
-          <span></span>
+        <!-- Botão hambúrguer nativo do Bootstrap: expande/recolhe o menu no mobile -->
+        <button class="navbar-toggler navbar-toggler-connect" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks" aria-controls="navLinks" aria-expanded="false" aria-label="Abrir menu de navegação">
+          <span class="navbar-toggler-icon"></span>
         </button>
 
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#hero" class="nav-link-item">Início</a></li>
-          <li><a href="#servicos" class="nav-link-item">Serviços</a></li>
-          <li><a href="#resultados" class="nav-link-item">Resultados</a></li>
-          <li><a href="#portfolio" class="nav-link-item">Portfólio</a></li>
-          <li><a href="#planos" class="nav-link-item">Planos</a></li>
-          <li><a href="#sobre" class="nav-link-item">Sobre</a></li>
-          <li><a href="#contato" class="nav-link-item">Contato</a></li>
-          <li class="nav-cta">
-            <a href="https://wa.me/5547900000000?text=Ol%C3%A1!%20Quero%20falar%20com%20a%20Connect." class="btn-connect btn-connect-whatsapp" target="_blank" rel="noopener">
-              <i class="bi bi-whatsapp" aria-hidden="true"></i> Falar no WhatsApp
-            </a>
-          </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navLinks">
+          <ul class="nav-links">
+            <li><a href="#hero" class="nav-link-item">Início</a></li>
+            <li><a href="#servicos" class="nav-link-item">Serviços</a></li>
+            <li><a href="#resultados" class="nav-link-item">Resultados</a></li>
+            <li><a href="#portfolio" class="nav-link-item">Portfólio</a></li>
+            <li><a href="#planos" class="nav-link-item">Planos</a></li>
+            <li><a href="#sobre" class="nav-link-item">Sobre</a></li>
+            <li><a href="#contato" class="nav-link-item">Contato</a></li>
+            <li class="nav-cta">
+              <a href="https://wa.me/5547900000000?text=Ol%C3%A1!%20Quero%20falar%20com%20a%20Connect." class="btn-connect btn-connect-whatsapp" target="_blank" rel="noopener">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Falar no WhatsApp
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
-    <div class="nav-overlay" id="navOverlay"></div>
   </header>
 
   <main id="main-content">
@@ -121,11 +123,7 @@
       <div class="hero-overlay"></div>
 
       <div class="hero-content">
-        <span class="hero-badge" data-reveal>
-          <span class="dot-pulse"></span> Marketing &amp; Produção de Conteúdo
-        </span>
-
-        <h1 class="hero-title" data-reveal data-reveal-delay="1">Transformamos empresas em referências digitais.</h1>
+        <h1 class="hero-title" data-reveal>Transformamos empresas em referências digitais.</h1>
 
         <p class="hero-subtitle" data-reveal data-reveal-delay="2">
           Produção de conteúdo, tráfego pago e estratégias para atrair mais clientes e aumentar suas vendas.
@@ -140,13 +138,38 @@
           </a>
         </div>
 
-        <div class="hero-proof" data-reveal data-reveal-delay="4">
-          <i class="bi bi-graph-up-arrow" aria-hidden="true"></i>
-          <span><strong>+60</strong> projetos realizados</span>
-        </div>
+        <p class="hero-microcopy" data-reveal data-reveal-delay="4">
+          <i class="bi bi-shield-check" aria-hidden="true"></i> Sem compromisso &middot; Resposta em até 1 hora útil
+        </p>
       </div>
 
       <div class="hero-scroll-cue" aria-hidden="true"><span></span></div>
+    </section>
+
+    <!-- =========================================================
+         PROVA SOCIAL EM NÚMEROS
+    ========================================================== -->
+    <section class="stats-bar" aria-label="Números da Connect">
+      <div class="container-custom">
+        <div class="stats-grid">
+          <div class="stat-item" data-reveal>
+            <span class="stat-value" data-count-to="60" data-suffix="+">0</span>
+            <span class="stat-label">Projetos entregues</span>
+          </div>
+          <div class="stat-item" data-reveal data-reveal-delay="1">
+            <span class="stat-value" data-count-to="50" data-suffix="+">0</span>
+            <span class="stat-label">Empresas atendidas</span>
+          </div>
+          <div class="stat-item" data-reveal data-reveal-delay="2">
+            <span class="stat-value" data-count-to="4.9" data-decimals="1">0</span>
+            <span class="stat-label">Avaliação média dos clientes</span>
+          </div>
+          <div class="stat-item" data-reveal data-reveal-delay="3">
+            <span class="stat-value" data-count-to="98" data-suffix="%">0</span>
+            <span class="stat-label">Taxa de satisfação</span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- =========================================================
@@ -291,6 +314,63 @@
         </div>
       </div>
     </div>
+
+    <!-- =========================================================
+         DEPOIMENTOS
+    ========================================================== -->
+    <section class="section bg-soft testimonials-section" aria-label="Depoimentos de clientes">
+      <div class="container-custom">
+        <div class="section-header text-center mx-auto" data-reveal>
+          <span class="eyebrow">Depoimentos</span>
+          <h2 class="section-title">Quem trabalha com a Connect, recomenda</h2>
+          <p class="section-subtitle">A opinião de quem viveu o processo de perto — na prática, não só no relatório.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <blockquote class="testimonial-card" data-reveal>
+            <div class="testimonial-stars" aria-label="Avaliação 5 de 5 estrelas">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-quote">"Em poucos meses o Instagram deixou de ser só uma vitrine bonita e passou a trazer clientes de verdade. A equipe entende de moda tanto quanto de marketing."</p>
+            <footer class="testimonial-author">
+              <img src="assets/clientes/cliente-1.svg" alt="" class="testimonial-avatar" aria-hidden="true" loading="lazy">
+              <div>
+                <cite class="testimonial-name">Fernanda Lima</cite>
+                <span class="testimonial-role">Sócia-fundadora, Vértice Moda</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card" data-reveal data-reveal-delay="1">
+            <div class="testimonial-stars" aria-label="Avaliação 5 de 5 estrelas">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-quote">"O que mais me conquistou foi a transparência: todo mês recebo um relatório simples de entender e sei exatamente para onde o investimento está indo."</p>
+            <footer class="testimonial-author">
+              <img src="assets/clientes/cliente-2.svg" alt="" class="testimonial-avatar" aria-hidden="true" loading="lazy">
+              <div>
+                <cite class="testimonial-name">Carlos Menezes</cite>
+                <span class="testimonial-role">Diretor, Oráculo Estética</span>
+              </div>
+            </footer>
+          </blockquote>
+
+          <blockquote class="testimonial-card" data-reveal data-reveal-delay="2">
+            <div class="testimonial-stars" aria-label="Avaliação 5 de 5 estrelas">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p class="testimonial-quote">"Terceirizamos tudo com tranquilidade. A Connect assumiu conteúdo e tráfego, e nosso time pôde focar 100% em atender quem chega pela porta."</p>
+            <footer class="testimonial-author">
+              <img src="assets/clientes/cliente-6.svg" alt="" class="testimonial-avatar" aria-hidden="true" loading="lazy">
+              <div>
+                <cite class="testimonial-name">Priscila Andrade</cite>
+                <span class="testimonial-role">Gerente, Aurora Fit</span>
+              </div>
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
 
     <!-- =========================================================
          SERVIÇOS
@@ -452,6 +532,46 @@
     </section>
 
     <!-- =========================================================
+         COMO FUNCIONA
+    ========================================================== -->
+    <section class="section" aria-label="Como funciona a parceria com a Connect">
+      <div class="container-custom">
+        <div class="section-header text-center mx-auto" data-reveal>
+          <span class="eyebrow">Como funciona</span>
+          <h2 class="section-title">Do primeiro contato ao resultado no seu negócio</h2>
+          <p class="section-subtitle">Um processo simples e transparente, pensado para você não perder tempo.</p>
+        </div>
+
+        <div class="process-steps">
+          <div class="process-step" data-reveal>
+            <span class="process-number">01</span>
+            <div class="process-icon"><i class="bi bi-search" aria-hidden="true"></i></div>
+            <h3>Diagnóstico gratuito</h3>
+            <p>Entendemos seu momento atual, seu público e seus objetivos de venda.</p>
+          </div>
+          <div class="process-step" data-reveal data-reveal-delay="1">
+            <span class="process-number">02</span>
+            <div class="process-icon"><i class="bi bi-compass" aria-hidden="true"></i></div>
+            <h3>Estratégia sob medida</h3>
+            <p>Definimos o plano ideal, metas claras e o calendário de entregas.</p>
+          </div>
+          <div class="process-step" data-reveal data-reveal-delay="2">
+            <span class="process-number">03</span>
+            <div class="process-icon"><i class="bi bi-camera-reels" aria-hidden="true"></i></div>
+            <h3>Produção e execução</h3>
+            <p>Conteúdo, tráfego pago e automações entram em ação no seu calendário.</p>
+          </div>
+          <div class="process-step" data-reveal data-reveal-delay="3">
+            <span class="process-number">04</span>
+            <div class="process-icon"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></div>
+            <h3>Acompanhamento contínuo</h3>
+            <p>Relatórios mensais e otimização constante para o resultado crescer.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
          PLANOS
     ========================================================== -->
     <section class="section bg-soft" id="planos" aria-label="Planos da Connect">
@@ -462,9 +582,16 @@
           <p class="section-subtitle">Pacotes mensais flexíveis, feitos para acompanhar o crescimento do seu negócio.</p>
         </div>
 
-        <div class="plans-grid">
-          <!-- Plano Básico (Standard) -->
-          <div class="plan-card" data-reveal>
+        <p class="plans-instructions" data-reveal>
+          <i class="bi bi-cursor" aria-hidden="true"></i> Selecione um plano abaixo e solicite seu orçamento personalizado com um único clique.
+        </p>
+
+        <!-- Sistema de seleção de plano: cada card é uma opção de rádio estilizada -->
+        <div class="plans-grid" id="plansGrid" role="radiogroup" aria-label="Escolha um plano">
+          <!-- Plano Básico -->
+          <label class="plan-card" data-reveal data-plan-name="Básico">
+            <input type="radio" name="plano" class="plan-radio" value="Básico" checked>
+            <span class="plan-select-check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
             <h3 class="plan-name">Básico</h3>
             <p class="plan-desc">Para quem está começando a organizar a presença digital.</p>
             <ul class="plan-features">
@@ -474,11 +601,12 @@
               <li><i class="bi bi-check-lg"></i> 12 stories</li>
               <li><i class="bi bi-check-lg"></i> Organização básica de perfil</li>
             </ul>
-            <a href="https://wa.me/5547900000000?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Plano%20B%C3%A1sico." target="_blank" rel="noopener" class="btn-connect btn-connect-outline plan-cta">Solicitar orçamento</a>
-          </div>
+          </label>
 
-          <!-- Plano Intermediário (Presença) -->
-          <div class="plan-card" data-reveal data-reveal-delay="1">
+          <!-- Plano Intermediário -->
+          <label class="plan-card" data-reveal data-reveal-delay="1" data-plan-name="Intermediário">
+            <input type="radio" name="plano" class="plan-radio" value="Intermediário">
+            <span class="plan-select-check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
             <h3 class="plan-name">Intermediário</h3>
             <p class="plan-desc">Presença consistente com o início da gestão de tráfego pago.</p>
             <ul class="plan-features">
@@ -489,12 +617,12 @@
               <li><i class="bi bi-check-lg"></i> Gestão de tráfego pago</li>
               <li><i class="bi bi-check-lg"></i> Organização de perfil</li>
             </ul>
-            <a href="https://wa.me/5547900000000?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Plano%20Intermedi%C3%A1rio." target="_blank" rel="noopener" class="btn-connect btn-connect-outline plan-cta">Solicitar orçamento</a>
-          </div>
+          </label>
 
-          <!-- Plano Premium (Pró) — destaque -->
-          <div class="plan-card is-featured" data-reveal data-reveal-delay="2">
-            <span class="plan-badge">Mais escolhido</span>
+          <!-- Plano Premium -->
+          <label class="plan-card" data-reveal data-reveal-delay="2" data-plan-name="Premium">
+            <input type="radio" name="plano" class="plan-radio" value="Premium">
+            <span class="plan-select-check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
             <h3 class="plan-name">Premium</h3>
             <p class="plan-desc">Estratégia completa para quem quer crescer sem se preocupar com detalhes.</p>
             <ul class="plan-features">
@@ -507,43 +635,50 @@
               <li><i class="bi bi-check-lg"></i> Planejamento estratégico</li>
               <li><i class="bi bi-check-lg"></i> Otimização contínua</li>
             </ul>
-            <a href="https://wa.me/5547900000000?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20Plano%20Premium." target="_blank" rel="noopener" class="btn-connect btn-connect-ghost-light plan-cta">Solicitar orçamento</a>
-          </div>
+          </label>
 
-          <!-- Plano Personalizado -->
-          <div class="plan-card" data-reveal data-reveal-delay="3">
+          <!-- Plano Personalizado: cliente escolhe as quantidades -->
+          <label class="plan-card plan-card-custom" data-reveal data-reveal-delay="3" data-plan-name="Personalizado">
+            <input type="radio" name="plano" class="plan-radio" value="Personalizado" id="planoPersonalizadoRadio">
+            <span class="plan-select-check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
             <h3 class="plan-name">Personalizado</h3>
             <p class="plan-desc">Construído sob medida a partir dos objetivos específicos da sua empresa.</p>
-            <ul class="plan-features">
-              <li><i class="bi bi-check-lg"></i> Quantidade de reels sob medida</li>
-              <li><i class="bi bi-check-lg"></i> Landing page dedicada</li>
-              <li><i class="bi bi-check-lg"></i> Tráfego pago escalável</li>
-              <li><i class="bi bi-check-lg"></i> Automações de atendimento</li>
-              <li><i class="bi bi-check-lg"></i> Captação sob demanda</li>
+
+            <div class="plan-custom-fields">
+              <div class="custom-field">
+                <label for="customReels">Reels por mês</label>
+                <input type="number" id="customReels" min="0" max="30" value="6" inputmode="numeric">
+              </div>
+              <div class="custom-field">
+                <label for="customStories">Stories por mês</label>
+                <input type="number" id="customStories" min="0" max="60" value="20" inputmode="numeric">
+              </div>
+            </div>
+
+            <ul class="plan-features plan-custom-checks">
+              <li>
+                <label class="custom-check"><input type="checkbox" id="customTrafego"> Tráfego pago</label>
+              </li>
+              <li>
+                <label class="custom-check"><input type="checkbox" id="customLanding"> Landing page</label>
+              </li>
+              <li>
+                <label class="custom-check"><input type="checkbox" id="customAutomacoes"> Automações</label>
+              </li>
+              <li>
+                <label class="custom-check"><input type="checkbox" id="customCaptacao"> Captação sob demanda</label>
+              </li>
             </ul>
-            <a href="https://wa.me/5547900000000?text=Ol%C3%A1!%20Quero%20montar%20um%20plano%20personalizado." target="_blank" rel="noopener" class="btn-connect btn-connect-outline plan-cta">Montar meu plano</a>
-          </div>
+          </label>
         </div>
 
-        <!-- Exemplos de personalização do plano sob medida -->
-        <div class="plan-custom-panel" data-reveal>
-          <div>
-            <span class="eyebrow">Plano Personalizado</span>
-            <h3 class="section-title" style="font-size: 1.6rem;">Monte a combinação ideal para o seu negócio</h3>
-            <p class="section-subtitle">Combine os módulos abaixo com a nossa equipe e receba uma proposta sob medida.</p>
-          </div>
-          <div class="custom-options">
-            <div class="custom-option"><i class="bi bi-camera-reels"></i> Quantidade de reels</div>
-            <div class="custom-option"><i class="bi bi-window"></i> Landing page</div>
-            <div class="custom-option"><i class="bi bi-graph-up"></i> Tráfego pago</div>
-            <div class="custom-option"><i class="bi bi-diagram-3"></i> Automações</div>
-            <div class="custom-option"><i class="bi bi-camera"></i> Captação</div>
-            <div class="custom-option"><i class="bi bi-bar-chart-line"></i> Relatórios extras</div>
-          </div>
-        </div>
-
+        <!-- CTA única, para qualquer plano selecionado -->
         <div class="plans-final-cta" data-reveal>
-          <a href="#contato" class="btn-connect btn-connect-primary btn-lg-block">Solicitar orçamento</a>
+          <p class="plans-selected-hint">Plano selecionado: <strong id="planSelectedName">Básico</strong></p>
+          <a href="#" id="planCtaBtn" target="_blank" rel="noopener" class="btn-connect btn-connect-primary btn-lg-block">
+            Solicitar orçamento
+          </a>
+          <p class="plans-trust-note"><i class="bi bi-shield-check" aria-hidden="true"></i> Sem compromisso &middot; Resposta em até 1 hora útil (dias úteis)</p>
         </div>
       </div>
     </section>
@@ -634,12 +769,6 @@
             <p class="team-name">Lucas Tavares</p>
             <p class="team-role">Social Media</p>
             <p class="team-specialty">Gestão de comunidades</p>
-          </div>
-          <div class="team-card" data-reveal data-reveal-delay="4">
-            <div class="team-photo"><img src="assets/equipe/equipe-5.svg" alt="Foto de Patrícia Ferraz" width="320" height="320" loading="lazy"></div>
-            <p class="team-name">Patrícia Ferraz</p>
-            <p class="team-role">Atendimento &amp; CS</p>
-            <p class="team-specialty">Relacionamento com clientes</p>
           </div>
         </div>
       </div>
@@ -747,9 +876,15 @@
           <span class="dot-pulse"></span> Vamos conversar
         </span>
         <h2 data-reveal data-reveal-delay="1">Sua empresa pode ser a próxima história de sucesso.</h2>
-        <a href="https://wa.me/5547900000000?text=Ol%C3%A1!%20Quero%20aumentar%20minhas%20vendas%20com%20a%20Connect." target="_blank" rel="noopener" class="btn-connect btn-connect-primary btn-lg-block" data-reveal data-reveal-delay="2">
+        <p class="cta-final-subtitle" data-reveal data-reveal-delay="2">
+          Atendemos um número limitado de novas empresas por mês, para manter o padrão de qualidade em cada entrega.
+        </p>
+        <a href="https://wa.me/5547900000000?text=Ol%C3%A1!%20Quero%20aumentar%20minhas%20vendas%20com%20a%20Connect." target="_blank" rel="noopener" class="btn-connect btn-connect-primary btn-lg-block" data-reveal data-reveal-delay="3">
           <i class="bi bi-whatsapp" aria-hidden="true"></i> Quero aumentar minhas vendas
         </a>
+        <p class="hero-microcopy cta-final-microcopy" data-reveal data-reveal-delay="4">
+          <i class="bi bi-shield-check" aria-hidden="true"></i> Sem compromisso &middot; Resposta em até 1 hora útil
+        </p>
       </div>
     </section>
 
