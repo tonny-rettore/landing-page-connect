@@ -88,11 +88,6 @@
           <img src="assets/logo/logo-white.svg" data-logo-light="assets/logo/logo-white.svg" data-logo-dark="assets/logo/logo.svg" alt="Logotipo da Connect Produções e Marketing" width="150" height="34">
         </a>
 
-        <!-- Botão hambúrguer nativo do Bootstrap: expande/recolhe o menu no mobile -->
-        <button class="navbar-toggler navbar-toggler-connect" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks" aria-controls="navLinks" aria-expanded="false" aria-label="Abrir menu de navegação">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
         <div class="collapse navbar-collapse" id="navLinks">
           <ul class="nav-links">
             <li><a href="#hero" class="nav-link-item">Início</a></li>
@@ -102,12 +97,18 @@
             <li><a href="#planos" class="nav-link-item">Planos</a></li>
             <li><a href="#sobre" class="nav-link-item">Sobre</a></li>
             <li><a href="#contato" class="nav-link-item">Contato</a></li>
-            <li class="nav-cta">
-              <a href="https://wa.me/5547900000000?text=Ol%C3%A1!%20Quero%20falar%20com%20a%20Connect." class="btn-connect btn-connect-whatsapp" target="_blank" rel="noopener">
-                <i class="bi bi-whatsapp" aria-hidden="true"></i> Falar no WhatsApp
-              </a>
-            </li>
           </ul>
+        </div>
+
+        <div class="nav-right">
+          <a href="https://wa.me/5547900000000?text=Ol%C3%A1!%20Quero%20falar%20com%20a%20Connect." class="btn-connect btn-connect-whatsapp nav-cta" target="_blank" rel="noopener">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i> <span class="nav-cta-text">Falar no WhatsApp</span>
+          </a>
+
+          <!-- Botão hambúrguer nativo do Bootstrap: expande/recolhe o menu no mobile -->
+          <button class="navbar-toggler navbar-toggler-connect" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks" aria-controls="navLinks" aria-expanded="false" aria-label="Abrir menu de navegação">
+            <span class="navbar-toggler-icon"></span>
+          </button>
         </div>
       </div>
     </nav>
@@ -137,13 +138,7 @@
             Conhecer nossos resultados
           </a>
         </div>
-
-        <p class="hero-microcopy" data-reveal data-reveal-delay="4">
-          <i class="bi bi-shield-check" aria-hidden="true"></i> Sem compromisso &middot; Resposta em até 1 hora útil
-        </p>
       </div>
-
-      <div class="hero-scroll-cue" aria-hidden="true"><span></span></div>
     </section>
 
     <!-- =========================================================
@@ -182,39 +177,40 @@
       <div class="clients-track-wrapper">
         <div class="clients-track" id="clientsTrack">
           <!-- Grupo 1 -->
-          <div class="client-logo"><img src="assets/clientes/cliente-1.svg" alt="Logotipo cliente Nova Alfa" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-2.svg" alt="Logotipo cliente Vértice" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-3.svg" alt="Logotipo cliente Oráculo" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-4.svg" alt="Logotipo cliente Bloom Studio" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-5.svg" alt="Logotipo cliente Grão Café" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-6.svg" alt="Logotipo cliente Lumen" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-7.svg" alt="Logotipo cliente Aurora Fit" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-8.svg" alt="Logotipo cliente Atlas Adv" width="140" height="60" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/cliente-1.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/cliente-2.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/cliente-3.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/cliente-4.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/cliente-5.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/cliente-6.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/cliente-7.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/cliente-8.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
           <!-- Grupo 2 (duplicado via JS para loop infinito) -->
         </div>
       </div>
     </section>
 
     <!-- =========================================================
-         CASES DE SUCESSO / PORTFÓLIO
+         RESULTADOS E PROJETOS (Portfólio)
     ========================================================== -->
-    <section class="section" id="portfolio" aria-label="Cases de sucesso">
-      <div class="container-custom">
-        <div class="section-header text-center mx-auto" data-reveal>
-          <span class="eyebrow">Portfólio</span>
-          <h2 class="section-title">Cases de sucesso</h2>
-          <p class="section-subtitle">Resultados reais de empresas que confiaram na estratégia da Connect.</p>
+    <section class="section cases-section" id="portfolio" aria-label="Resultados e projetos">
+      <div class="container-custom cases-container">
+
+        <div class="cases-header" data-reveal>
+          <span class="eyebrow">Resultados e Projetos</span>
+          <h2 class="cases-title">Projetos que geram<br>resultado real<br>para nossos clientes</h2>
+          <p class="cases-subtitle">Uma seleção de trabalhos que mostram como estratégia, conteúdo e performance caminham juntos em cada entrega da Connect.</p>
         </div>
 
         <div class="cases-grid" id="casesGrid">
           <!-- Case 1 -->
           <article class="case-card" data-reveal>
-            <div class="case-card-media">
-              <img src="assets/cases/case-1.svg" alt="Case de sucesso — loja de moda Vértice" width="480" height="320" loading="lazy">
+            <div class="case-card-top case-gradient-1">
+              <span class="case-card-badge">Case 01</span>
             </div>
             <div class="case-card-body">
-              <span class="case-card-segment">Varejo de Moda</span>
-              <h3 class="case-card-name">Vértice Moda</h3>
+              <span class="case-card-category">Varejo de Moda</span>
+              <h3 class="case-card-title">EMPRESA 1</h3>
               <p class="case-card-desc">Reposicionamento de marca e produção de conteúdo semanal para redes sociais.</p>
               <button class="case-card-link" data-bs-toggle="modal" data-bs-target="#caseModal" data-case="0">
                 Ver detalhes <i class="bi bi-arrow-right" aria-hidden="true"></i>
@@ -224,12 +220,12 @@
 
           <!-- Case 2 -->
           <article class="case-card" data-reveal data-reveal-delay="1">
-            <div class="case-card-media">
-              <img src="assets/cases/case-2.svg" alt="Case de sucesso — clínica de estética Oráculo" width="480" height="320" loading="lazy">
+            <div class="case-card-top case-gradient-2">
+              <span class="case-card-badge">Case 02</span>
             </div>
             <div class="case-card-body">
-              <span class="case-card-segment">Clínica de Estética</span>
-              <h3 class="case-card-name">Oráculo Estética</h3>
+              <span class="case-card-category">Clínica de Estética</span>
+              <h3 class="case-card-title">EMPRESA 2</h3>
               <p class="case-card-desc">Campanhas de tráfego pago com foco em agendamento de avaliações.</p>
               <button class="case-card-link" data-bs-toggle="modal" data-bs-target="#caseModal" data-case="1">
                 Ver detalhes <i class="bi bi-arrow-right" aria-hidden="true"></i>
@@ -239,12 +235,12 @@
 
           <!-- Case 3 -->
           <article class="case-card" data-reveal data-reveal-delay="2">
-            <div class="case-card-media">
-              <img src="assets/cases/case-3.svg" alt="Case de sucesso — restaurante Grão Café" width="480" height="320" loading="lazy">
+            <div class="case-card-top case-gradient-3">
+              <span class="case-card-badge">Case 03</span>
             </div>
             <div class="case-card-body">
-              <span class="case-card-segment">Food Service</span>
-              <h3 class="case-card-name">Grão Café</h3>
+              <span class="case-card-category">Food Service</span>
+              <h3 class="case-card-title">EMPRESA 3</h3>
               <p class="case-card-desc">Produção de reels e gestão de perfil para aumentar o movimento no salão.</p>
               <button class="case-card-link" data-bs-toggle="modal" data-bs-target="#caseModal" data-case="2">
                 Ver detalhes <i class="bi bi-arrow-right" aria-hidden="true"></i>
@@ -254,12 +250,12 @@
 
           <!-- Case 4 -->
           <article class="case-card" data-reveal>
-            <div class="case-card-media">
-              <img src="assets/cases/case-4.svg" alt="Case de sucesso — escola Nova Alfa" width="480" height="320" loading="lazy">
+            <div class="case-card-top case-gradient-1">
+              <span class="case-card-badge">Case 04</span>
             </div>
             <div class="case-card-body">
-              <span class="case-card-segment">Educação</span>
-              <h3 class="case-card-name">Nova Alfa Educação</h3>
+              <span class="case-card-category">Educação</span>
+              <h3 class="case-card-title">EMPRESA 4</h3>
               <p class="case-card-desc">Estratégia de captação de matrículas com automações e tráfego pago.</p>
               <button class="case-card-link" data-bs-toggle="modal" data-bs-target="#caseModal" data-case="3">
                 Ver detalhes <i class="bi bi-arrow-right" aria-hidden="true"></i>
@@ -269,12 +265,12 @@
 
           <!-- Case 5 -->
           <article class="case-card" data-reveal data-reveal-delay="1">
-            <div class="case-card-media">
-              <img src="assets/cases/case-5.svg" alt="Case de sucesso — imobiliária Atlas" width="480" height="320" loading="lazy">
+            <div class="case-card-top case-gradient-2">
+              <span class="case-card-badge">Case 05</span>
             </div>
             <div class="case-card-body">
-              <span class="case-card-segment">Imobiliária</span>
-              <h3 class="case-card-name">Atlas Imóveis</h3>
+              <span class="case-card-category">Imobiliária</span>
+              <h3 class="case-card-title">EMPRESA 5</h3>
               <p class="case-card-desc">Site institucional e landing pages para captação de leads qualificados.</p>
               <button class="case-card-link" data-bs-toggle="modal" data-bs-target="#caseModal" data-case="4">
                 Ver detalhes <i class="bi bi-arrow-right" aria-hidden="true"></i>
@@ -284,12 +280,12 @@
 
           <!-- Case 6 -->
           <article class="case-card" data-reveal data-reveal-delay="2">
-            <div class="case-card-media">
-              <img src="assets/cases/case-6.svg" alt="Case de sucesso — studio Aurora Fit" width="480" height="320" loading="lazy">
+            <div class="case-card-top case-gradient-3">
+              <span class="case-card-badge">Case 06</span>
             </div>
             <div class="case-card-body">
-              <span class="case-card-segment">Fitness &amp; Saúde</span>
-              <h3 class="case-card-name">Aurora Fit</h3>
+              <span class="case-card-category">Fitness & Saúde</span>
+              <h3 class="case-card-title">EMPRESA 6</h3>
               <p class="case-card-desc">Captação de conteúdo em estúdio e gestão de tráfego para vendas de planos.</p>
               <button class="case-card-link" data-bs-toggle="modal" data-bs-target="#caseModal" data-case="5">
                 Ver detalhes <i class="bi bi-arrow-right" aria-hidden="true"></i>
@@ -592,6 +588,7 @@
           <label class="plan-card" data-reveal data-plan-name="Básico">
             <input type="radio" name="plano" class="plan-radio" value="Básico" checked>
             <span class="plan-select-check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+            <div class="plan-icon"><i class="bi bi-rocket" aria-hidden="true"></i></div>
             <h3 class="plan-name">Básico</h3>
             <p class="plan-desc">Para quem está começando a organizar a presença digital.</p>
             <ul class="plan-features">
@@ -606,7 +603,9 @@
           <!-- Plano Intermediário -->
           <label class="plan-card" data-reveal data-reveal-delay="1" data-plan-name="Intermediário">
             <input type="radio" name="plano" class="plan-radio" value="Intermediário">
+            <span class="plan-badge-popular">Mais escolhido</span>
             <span class="plan-select-check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+            <div class="plan-icon"><i class="bi bi-graph-up-arrow" aria-hidden="true"></i></div>
             <h3 class="plan-name">Intermediário</h3>
             <p class="plan-desc">Presença consistente com o início da gestão de tráfego pago.</p>
             <ul class="plan-features">
@@ -623,6 +622,7 @@
           <label class="plan-card" data-reveal data-reveal-delay="2" data-plan-name="Premium">
             <input type="radio" name="plano" class="plan-radio" value="Premium">
             <span class="plan-select-check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+            <div class="plan-icon"><i class="bi bi-gem" aria-hidden="true"></i></div>
             <h3 class="plan-name">Premium</h3>
             <p class="plan-desc">Estratégia completa para quem quer crescer sem se preocupar com detalhes.</p>
             <ul class="plan-features">
@@ -641,6 +641,7 @@
           <label class="plan-card plan-card-custom" data-reveal data-reveal-delay="3" data-plan-name="Personalizado">
             <input type="radio" name="plano" class="plan-radio" value="Personalizado" id="planoPersonalizadoRadio">
             <span class="plan-select-check" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+            <div class="plan-icon"><i class="bi bi-sliders2" aria-hidden="true"></i></div>
             <h3 class="plan-name">Personalizado</h3>
             <p class="plan-desc">Construído sob medida a partir dos objetivos específicos da sua empresa.</p>
 
@@ -678,7 +679,6 @@
           <a href="#" id="planCtaBtn" target="_blank" rel="noopener" class="btn-connect btn-connect-primary btn-lg-block">
             Solicitar orçamento
           </a>
-          <p class="plans-trust-note"><i class="bi bi-shield-check" aria-hidden="true"></i> Sem compromisso &middot; Resposta em até 1 hora útil (dias úteis)</p>
         </div>
       </div>
     </section>
@@ -747,26 +747,26 @@
 
         <div class="team-grid">
           <div class="team-card" data-reveal>
-            <div class="team-photo"><img src="assets/equipe/equipe-1.svg" alt="Foto de Ana Carvalho" width="320" height="320" loading="lazy"></div>
-            <p class="team-name">Ana Carvalho</p>
-            <p class="team-role">Direção de Criação</p>
+            <div class="team-photo"><img src="assets/equipe/equipe-1.svg" alt="Foto" width="320" height="320" loading="lazy"></div>
+            <p class="team-name">pessoas</p>
+            <p class="team-role">Social Media</p>
             <p class="team-specialty">Estratégia de conteúdo</p>
           </div>
           <div class="team-card" data-reveal data-reveal-delay="1">
-            <div class="team-photo"><img src="assets/equipe/equipe-2.svg" alt="Foto de Rafael Martins" width="320" height="320" loading="lazy"></div>
-            <p class="team-name">Rafael Martins</p>
-            <p class="team-role">Gestor de Tráfego</p>
-            <p class="team-specialty">Meta &amp; Google Ads</p>
+            <div class="team-photo"><img src="assets/equipe/equipe-2.svg" alt="Foto" width="320" height="320" loading="lazy"></div>
+            <p class="team-name">pessoas</p>
+            <p class="team-role">Social Media</p>
+            <p class="team-specialty">Meta & Google Ads</p>
           </div>
           <div class="team-card" data-reveal data-reveal-delay="2">
-            <div class="team-photo"><img src="assets/equipe/equipe-3.svg" alt="Foto de Juliana Souza" width="320" height="320" loading="lazy"></div>
-            <p class="team-name">Juliana Souza</p>
-            <p class="team-role">Produtora Audiovisual</p>
-            <p class="team-specialty">Captação &amp; edição</p>
+            <div class="team-photo"><img src="assets/equipe/equipe-3.svg" alt="Foto" width="320" height="320" loading="lazy"></div>
+            <p class="team-name">pessoas</p>
+            <p class="team-role">Social Media</p>
+            <p class="team-specialty">Captação & edição</p>
           </div>
           <div class="team-card" data-reveal data-reveal-delay="3">
-            <div class="team-photo"><img src="assets/equipe/equipe-4.svg" alt="Foto de Lucas Tavares" width="320" height="320" loading="lazy"></div>
-            <p class="team-name">Lucas Tavares</p>
+            <div class="team-photo"><img src="assets/equipe/equipe-4.svg" alt="Foto" width="320" height="320" loading="lazy"></div>
+            <p class="team-name">pessoas</p>
             <p class="team-role">Social Media</p>
             <p class="team-specialty">Gestão de comunidades</p>
           </div>
@@ -872,19 +872,10 @@
     <section class="cta-final" id="contato" aria-label="Fale com a Connect">
       <div class="cta-final-overlay"></div>
       <div class="cta-final-content">
-        <span class="hero-badge" data-reveal>
-          <span class="dot-pulse"></span> Vamos conversar
-        </span>
-        <h2 data-reveal data-reveal-delay="1">Sua empresa pode ser a próxima história de sucesso.</h2>
-        <p class="cta-final-subtitle" data-reveal data-reveal-delay="2">
-          Atendemos um número limitado de novas empresas por mês, para manter o padrão de qualidade em cada entrega.
-        </p>
-        <a href="https://wa.me/5547900000000?text=Ol%C3%A1!%20Quero%20aumentar%20minhas%20vendas%20com%20a%20Connect." target="_blank" rel="noopener" class="btn-connect btn-connect-primary btn-lg-block" data-reveal data-reveal-delay="3">
+        <h2 data-reveal>Sua empresa pode ser a próxima história de sucesso.</h2>
+        <a href="https://wa.me/5547900000000?text=Ol%C3%A1!%20Quero%20aumentar%20minhas%20vendas%20com%20a%20Connect." target="_blank" rel="noopener" class="btn-connect btn-connect-primary btn-lg-block" data-reveal data-reveal-delay="1">
           <i class="bi bi-whatsapp" aria-hidden="true"></i> Quero aumentar minhas vendas
         </a>
-        <p class="hero-microcopy cta-final-microcopy" data-reveal data-reveal-delay="4">
-          <i class="bi bi-shield-check" aria-hidden="true"></i> Sem compromisso &middot; Resposta em até 1 hora útil
-        </p>
       </div>
     </section>
 
