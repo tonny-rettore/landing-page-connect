@@ -307,8 +307,21 @@ select:focus-visible {
 }
 
 .navbar-connect .navbar-brand-connect img {
-  height: 34px;
+  height: 44px; /* aumentado para melhor destaque */
   width: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-connect .navbar-brand-connect img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .navbar-connect .navbar-brand-connect img {
+    height: 36px;
+  }
 }
 
 .navbar-connect .nav-links {
@@ -361,7 +374,9 @@ select:focus-visible {
 
 /* Estado com scroll: navbar reduzida, com blur e sombra */
 .navbar-connect.is-scrolled {
-  padding: 12px 0;
+  /* Mantém o mesmo espaçamento/posicionamento do estado inicial
+     para evitar deslocamentos visuais durante o scroll */
+  padding: 22px 0;
   background-color: rgba(255, 255, 255, 0.82);
   backdrop-filter: blur(16px) saturate(140%);
   -webkit-backdrop-filter: blur(16px) saturate(140%);
@@ -465,6 +480,26 @@ select:focus-visible {
   z-index: 1;
   opacity: 0.5;
   pointer-events: none;
+}
+
+.hero-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  background: transparent;
+  opacity: 0.55; /* permite enxergar a cor de fundo */
+  mix-blend-mode: multiply; /* mistura o vídeo com o fundo azul */
+  transition: opacity 0.4s ease;
+}
+
+/* Evita carregar vídeo em telas muito pequenas por desempenho */
+@media (max-width: 767.98px) {
+  .hero-bg-video {
+    display: none;
+  }
 }
 
 .hero-overlay {
@@ -645,6 +680,18 @@ select:focus-visible {
   border-bottom: 1px solid rgba(28, 47, 89, 0.06);
 }
 
+@media (max-width: 991.98px) {
+  .clients-section {
+    padding: 56px 0;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .clients-section {
+    padding: 40px 0;
+  }
+}
+
 .clients-title {
   text-align: center;
   font-size: 0.85rem;
@@ -653,6 +700,13 @@ select:focus-visible {
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 40px;
+}
+
+@media (max-width: 575.98px) {
+  .clients-title {
+    margin-bottom: 32px;
+    font-size: 0.8rem;
+  }
 }
 
 .clients-track-wrapper {
@@ -664,9 +718,23 @@ select:focus-visible {
 .clients-track {
   display: flex;
   align-items: center;
-  gap: 64px;
+  gap: 80px;
   width: max-content;
   animation: scroll-clients 32s linear infinite;
+}
+
+@media (max-width: 991.98px) {
+  .clients-track {
+    gap: 60px;
+    animation-duration: 24s;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .clients-track {
+    gap: 40px;
+    animation-duration: 20s;
+  }
 }
 
 .clients-track-wrapper:hover .clients-track {
@@ -683,14 +751,52 @@ select:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 60px;
+  height: 120px;
+  min-width: 160px;
+  padding: 15px 20px;
   filter: grayscale(1) opacity(0.55);
   transition: filter var(--transition-fast), transform var(--transition-fast);
+}
+
+.client-logo img {
+  max-width: 100%;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 1199.98px) {
+  .client-logo {
+    height: 110px;
+    min-width: 140px;
+    padding: 12px 16px;
+  }
+  .client-logo img {
+    max-height: 90px;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .client-logo {
+    height: 100px;
+    min-width: 120px;
+    padding: 10px 12px;
+  }
+  .client-logo img {
+    max-height: 80px;
+  }
 }
 
 .client-logo:hover {
   filter: grayscale(0) opacity(1);
   transform: scale(1.08);
+}
+
+@media (max-width: 991.98px) {
+  .client-logo:hover {
+    transform: scale(1.05);
+  }
 }
 
 /* ------------------------ 8. RESULTADOS E PROJETOS ------------------------ */
@@ -1767,8 +1873,11 @@ select:focus-visible {
 }
 
 .footer-brand img {
-  height: 32px;
+  width: 170px;
+  height: auto;
+  max-width: 100%;
   margin-bottom: 18px;
+  object-fit: contain;
 }
 
 .footer-brand p {

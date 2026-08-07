@@ -34,8 +34,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
-  <link rel="preload" as="image" href="assets/logo/logo.svg">
-  <link rel="preload" as="image" href="assets/logo/logo-white.svg">
+  <link rel="preload" as="image" href="assets/logo/logo-black-1.png">
+  <link rel="preload" as="image" href="assets/logo/logo-white-1.png">
 
   <!-- Google Fonts: Sora (display) + Inter (texto) -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap">
@@ -85,7 +85,7 @@
     <nav class="navbar navbar-expand-lg navbar-connect" id="mainNavbar" aria-label="Navegação principal">
       <div class="container-custom nav-inner">
         <a href="#hero" class="navbar-brand-connect" aria-label="Connect Produções e Marketing — início">
-          <img src="assets/logo/logo-white.svg" data-logo-light="assets/logo/logo-white.svg" data-logo-dark="assets/logo/logo.svg" alt="Logotipo da Connect Produções e Marketing" width="150" height="34">
+          <img src="assets/logo/logo-white-1.png" data-logo-light="assets/logo/logo-white-1.png" data-logo-dark="assets/logo/logo-black-1.png" alt="Logotipo da Connect Produções e Marketing" width="170">
         </a>
 
         <div class="collapse navbar-collapse" id="navLinks">
@@ -120,6 +120,10 @@
          HERO
     ========================================================== -->
     <section class="hero" id="hero" aria-label="Apresentação da Connect">
+      <video class="hero-bg-video" autoplay muted loop playsinline preload="auto">
+        <source src="assets/hero/hero.mp4" type="video/mp4">
+        Seu navegador não suporta vídeo em background.
+      </video>
       <svg class="hero-signal" id="heroSignal" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>
       <div class="hero-overlay"></div>
 
@@ -177,14 +181,12 @@
       <div class="clients-track-wrapper">
         <div class="clients-track" id="clientsTrack">
           <!-- Grupo 1 -->
-          <div class="client-logo"><img src="assets/clientes/cliente-1.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-2.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-3.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-4.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-5.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-6.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-7.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
-          <div class="client-logo"><img src="assets/clientes/cliente-8.svg" alt="Logotipo" width="140" height="60" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/3marcos-1.png" alt="Logo 3 Marcos" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/boa-vista-1.png" alt="Logo Boa Vista" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/facil-veiculos-1.png" alt="Logo Fácil Veículos" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/fontana-1.png" alt="Logo Fontana" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/montra-1.png" alt="Logo Montra" loading="lazy"></div>
+          <div class="client-logo"><img src="assets/clientes/pocos-artesianos-1.png" alt="Logo Poços Artesianos" loading="lazy"></div>
           <!-- Grupo 2 (duplicado via JS para loop infinito) -->
         </div>
       </div>
@@ -889,7 +891,7 @@
     <div class="container-custom">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/logo/logo-white.svg" alt="Logotipo da Connect Produções e Marketing" width="150" height="32" loading="lazy">
+          <img src="assets/logo/logo-white-1.png" alt="Logotipo da Connect Produções e Marketing" width="170" loading="lazy">
           <p>Marketing e produção de conteúdo para empresas que querem se tornar referência no seu mercado.</p>
           <div class="footer-social">
             <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram da Connect"><i class="bi bi-instagram" aria-hidden="true"></i></a>
