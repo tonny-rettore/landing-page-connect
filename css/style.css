@@ -532,6 +532,75 @@ select:focus-visible {
 [data-reveal-delay="4"] { transition-delay: 0.46s; }
 [data-reveal-delay="5"] { transition-delay: 0.58s; }
 
+/* ------------------- 6c. SEÇÃO ESCURA COM TEXTURA DE SINAL ----------------
+   Reaproveita a identidade visual do Hero (fundo azul-midnight + rede de
+   pontos conectados) para quebrar blocos de seções claras e dar mais
+   contraste/vida ao meio da página. Usar junto de um <svg class="section-signal">. */
+.bg-dark-signal {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-primary-dark);
+  background-image:
+    radial-gradient(circle at 15% 25%, rgba(110, 143, 211, 0.28), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(47, 78, 143, 0.5), transparent 50%),
+    linear-gradient(160deg, #16233f 0%, #1c2f59 55%, #24397a 100%);
+  /* Bordas diagonais (não-retas) para separar da seção clara acima/abaixo */
+  clip-path: polygon(0 0, 100% 56px, 100% 100%, 0 calc(100% - 56px));
+  padding-top: calc(var(--section-padding) + 56px);
+  padding-bottom: calc(var(--section-padding) + 56px);
+}
+
+@media (max-width: 991.98px) {
+  .bg-dark-signal {
+    clip-path: polygon(0 0, 100% 28px, 100% 100%, 0 calc(100% - 28px));
+    padding-top: calc(var(--section-padding-mobile) + 28px);
+    padding-bottom: calc(var(--section-padding-mobile) + 28px);
+  }
+}
+
+.bg-dark-signal .section-signal {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.32;
+  pointer-events: none;
+}
+
+.bg-dark-signal .container-custom {
+  position: relative;
+  z-index: 1;
+}
+
+.bg-dark-signal .eyebrow { color: var(--color-secondary); }
+.bg-dark-signal .eyebrow::before { background: var(--color-white); }
+.bg-dark-signal .section-title { color: var(--color-white); }
+.bg-dark-signal .section-subtitle { color: var(--color-white-70); }
+
+/* Cards de diferenciais reestilizados em modo "vidro" para o fundo escuro */
+.bg-dark-signal .diff-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(6px);
+}
+
+.bg-dark-signal .diff-card:hover {
+  border-color: rgba(255, 255, 255, 0.32);
+  box-shadow: 0 24px 50px rgba(5, 10, 25, 0.4);
+}
+
+.bg-dark-signal .diff-icon {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+}
+
+.bg-dark-signal .diff-card:hover .diff-icon {
+  background: var(--color-secondary);
+  color: var(--color-white);
+}
+
+.bg-dark-signal .diff-card h3 { color: var(--color-white); }
+.bg-dark-signal .diff-card p { color: var(--color-white-70); }
+
 /* --------------------------- 6b. BARRA DE ESTATÍSTICAS -------------------- */
 .stats-bar {
   background: var(--color-primary-dark);

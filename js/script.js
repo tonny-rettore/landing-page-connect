@@ -466,16 +466,26 @@ function initFooterYear() {
 }
 
 /* -------------------------------------------------------------------------
- * 10. HERO SIGNAL: gera a rede de pontos conectados (elemento de assinatura)
+ * 10. SIGNAL NETWORKS: gera a rede de pontos conectados (elemento de
+ *     assinatura da marca). Reaproveitada no Hero e na seção Diferenciais
+ *     (.bg-dark-signal) para manter a identidade visual em ambos os blocos
+ *     escuros da página.
  * ---------------------------------------------------------------------- */
 function initHeroSignal() {
-  const svg = document.getElementById('heroSignal');
+  renderSignalNetwork('heroSignal', { numPoints: 26, maxDistance: 230 });
+  renderSignalNetwork('diffSignal', { numPoints: 16, maxDistance: 240 });
+}
+
+function renderSignalNetwork(svgId, options = {}) {
+  const svg = document.getElementById(svgId);
   if (!svg) return;
 
-  const NUM_POINTS = 26;
-  const WIDTH = 1200;
-  const HEIGHT = 800;
-  const MAX_DISTANCE = 230;
+  const {
+    numPoints: NUM_POINTS = 24,
+    maxDistance: MAX_DISTANCE = 220,
+    width: WIDTH = 1200,
+    height: HEIGHT = 800,
+  } = options;
 
   const points = Array.from({ length: NUM_POINTS }, () => ({
     x: Math.random() * WIDTH,
