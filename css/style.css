@@ -1516,7 +1516,7 @@ select:focus-visible {
 .plan-badge-popular {
   position: absolute;
   top: 0;
-  right: 24px;
+  left: 24px;
   background: var(--color-primary);
   color: var(--color-white);
   font-size: 0.7rem;
