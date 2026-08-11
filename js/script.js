@@ -13,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initServicesPanel();
   initCaseModal();
   initPlanSelector();
-  initWhatsappFloat();
   initFooterYear();
   initHeroSignal();
 });
@@ -355,7 +354,7 @@ function initCaseModal() {
  *    orçamento via WhatsApp já com a escolha preenchida na mensagem.
  * ---------------------------------------------------------------------- */
 function initPlanSelector() {
-  const WHATSAPP_NUMBER = '5547900000000';
+  const WHATSAPP_NUMBER = '555596288142'; // unificado com o restante do site
 
   const radios = document.querySelectorAll('input[name="plano"]');
   const cards = document.querySelectorAll('.plan-card');
@@ -428,35 +427,7 @@ function initPlanSelector() {
 }
 
 /* -------------------------------------------------------------------------
- * 8. WHATSAPP FLUTUANTE: reposiciona quando o rodapé entra na tela
- * ---------------------------------------------------------------------- */
-function initWhatsappFloat() {
-  const floatBtn = document.getElementById('whatsappFloat');
-  const footer = document.querySelector('.footer-connect');
-  if (!floatBtn || !footer) return;
-
-  if (!('IntersectionObserver' in window)) return;
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        floatBtn.classList.toggle('is-docked', entry.isIntersecting);
-        if (entry.isIntersecting) {
-          footer.style.position = 'relative';
-          footer.appendChild(floatBtn);
-        } else if (floatBtn.parentElement !== document.body) {
-          document.body.appendChild(floatBtn);
-        }
-      });
-    },
-    { threshold: 0 }
-  );
-
-  observer.observe(footer);
-}
-
-/* -------------------------------------------------------------------------
- * 9. RODAPÉ: atualiza o ano corrente automaticamente
+ * 8. RODAPÉ: atualiza o ano corrente automaticamente
  * ---------------------------------------------------------------------- */
 function initFooterYear() {
   const yearEl = document.getElementById('currentYear');
@@ -466,7 +437,7 @@ function initFooterYear() {
 }
 
 /* -------------------------------------------------------------------------
- * 10. SIGNAL NETWORKS: gera a rede de pontos conectados (elemento de
+ * 9. SIGNAL NETWORKS: gera a rede de pontos conectados (elemento de
  *     assinatura da marca). Reaproveitada no Hero e na seção Diferenciais
  *     (.bg-dark-signal) para manter a identidade visual em ambos os blocos
  *     escuros da página.

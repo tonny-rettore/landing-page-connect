@@ -107,7 +107,12 @@ button {
   cursor: pointer;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-display);
   color: var(--text-heading);
   margin: 0;
@@ -135,6 +140,7 @@ select:focus-visible {
   html {
     scroll-behavior: auto;
   }
+
   *,
   *::before,
   *::after {
@@ -374,6 +380,7 @@ select:focus-visible {
     display: flex !important;
     justify-content: center;
   }
+
   .navbar-toggler-connect {
     display: none;
   }
@@ -497,8 +504,10 @@ select:focus-visible {
   object-fit: cover;
   z-index: 0;
   background: transparent;
-  opacity: 0.55; /* permite enxergar a cor de fundo */
-  mix-blend-mode: multiply; /* mistura o vídeo com o fundo azul */
+  opacity: 0.55;
+  /* permite enxergar a cor de fundo */
+  mix-blend-mode: multiply;
+  /* mistura o vídeo com o fundo azul */
   transition: opacity 0.4s ease;
 }
 
@@ -568,16 +577,39 @@ select:focus-visible {
   transform: scale(1);
 }
 
-[data-reveal-delay="1"] { transition-delay: 0.1s; }
-[data-reveal-delay="2"] { transition-delay: 0.22s; }
-[data-reveal-delay="3"] { transition-delay: 0.34s; }
-[data-reveal-delay="4"] { transition-delay: 0.46s; }
-[data-reveal-delay="5"] { transition-delay: 0.58s; }
+[data-reveal-delay="1"] {
+  transition-delay: 0.1s;
+}
+
+[data-reveal-delay="2"] {
+  transition-delay: 0.22s;
+}
+
+[data-reveal-delay="3"] {
+  transition-delay: 0.34s;
+}
+
+[data-reveal-delay="4"] {
+  transition-delay: 0.46s;
+}
+
+[data-reveal-delay="5"] {
+  transition-delay: 0.58s;
+}
 
 /* ------------------- 6c. SEÇÃO ESCURA COM TEXTURA DE SINAL ----------------
    Reaproveita a identidade visual do Hero (fundo azul-midnight + rede de
    pontos conectados) para quebrar blocos de seções claras e dar mais
    contraste/vida ao meio da página. Usar junto de um <svg class="section-signal">. */
+
+/* Wrapper que fica atrás da seção diagonal: preenche com o cinza das seções
+   vizinhas (.bg-soft) os cantos que o clip-path corta, evitando o "vazamento"
+   de branco do body nesses triângulos. Não usar pseudo-elemento aqui, pois o
+   clip-path também clipa os filhos da própria .bg-dark-signal. */
+.diagonal-fill {
+  background: var(--color-gray-light);
+}
+
 .bg-dark-signal {
   position: relative;
   overflow: hidden;
@@ -613,10 +645,21 @@ select:focus-visible {
   z-index: 1;
 }
 
-.bg-dark-signal .eyebrow { color: var(--color-secondary); }
-.bg-dark-signal .eyebrow::before { background: var(--color-white); }
-.bg-dark-signal .section-title { color: var(--color-white); }
-.bg-dark-signal .section-subtitle { color: var(--color-white-70); }
+.bg-dark-signal .eyebrow {
+  color: var(--color-secondary);
+}
+
+.bg-dark-signal .eyebrow::before {
+  background: var(--color-white);
+}
+
+.bg-dark-signal .section-title {
+  color: var(--color-white);
+}
+
+.bg-dark-signal .section-subtitle {
+  color: var(--color-white-70);
+}
 
 /* Cards de diferenciais reestilizados em modo "vidro" para o fundo escuro */
 .bg-dark-signal .diff-card {
@@ -640,8 +683,13 @@ select:focus-visible {
   color: var(--color-white);
 }
 
-.bg-dark-signal .diff-card h3 { color: var(--color-white); }
-.bg-dark-signal .diff-card p { color: var(--color-white-70); }
+.bg-dark-signal .diff-card h3 {
+  color: var(--color-white);
+}
+
+.bg-dark-signal .diff-card p {
+  color: var(--color-white-70);
+}
 
 /* --------------------------- 6b. BARRA DE ESTATÍSTICAS -------------------- */
 .stats-bar {
@@ -749,8 +797,13 @@ select:focus-visible {
 }
 
 @keyframes scroll-clients {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .client-logo {
@@ -779,6 +832,7 @@ select:focus-visible {
     min-width: 140px;
     padding: 12px 16px;
   }
+
   .client-logo img {
     max-height: 90px;
   }
@@ -790,6 +844,7 @@ select:focus-visible {
     min-width: 120px;
     padding: 10px 12px;
   }
+
   .client-logo img {
     max-height: 80px;
   }
@@ -888,9 +943,17 @@ select:focus-visible {
   filter: brightness(1.1) saturate(1.1);
 }
 
-.case-gradient-1 { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%); }
-.case-gradient-2 { background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%); }
-.case-gradient-3 { background: linear-gradient(135deg, var(--color-primary-dark) 0%, #0f1b33 100%); }
+.case-gradient-1 {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+}
+
+.case-gradient-2 {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-primary) 100%);
+}
+
+.case-gradient-3 {
+  background: linear-gradient(135deg, var(--color-primary-dark) 0%, #0f1b33 100%);
+}
 
 .case-card-badge {
   position: absolute;
@@ -1036,6 +1099,7 @@ select:focus-visible {
 }
 
 @media (max-width: 575.98px) {
+
   .modal-connect .case-metrics,
   .modal-connect .case-gallery {
     grid-template-columns: repeat(2, 1fr);
@@ -1224,8 +1288,15 @@ select:focus-visible {
 }
 
 @keyframes fade-panel {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .service-panel-title {
@@ -1412,6 +1483,7 @@ select:focus-visible {
 }
 
 /* ------------------------------ 11. PLANOS -------------------------------- */
+/* ------------------------------ 11. PLANOS -------------------------------- */
 .plans-instructions {
   text-align: center;
   color: var(--text-muted);
@@ -1443,7 +1515,10 @@ select:focus-visible {
   }
 }
 
-/* Cada plano é um <label> clicável associado a um input radio oculto */
+
+/* Cada plano é um <label> clicável associado a um input radio oculto.
+   overflow: hidden garante que a barra colorida do topo (::before) fique
+   corretamente recortada pelos cantos arredondados no hover/seleção. */
 .plan-card {
   background: var(--color-white);
   border: 2px solid rgba(28, 47, 89, 0.1);
@@ -1513,17 +1588,19 @@ select:focus-visible {
   color: var(--color-white);
 }
 
+/* Badge "Mais escolhido": posicionado atrás do card (z-index menor),
+   com padding-bottom maior para empurrar o texto para a parte que
+   fica visível acima da borda do card. */
 .plan-badge-popular {
-  position: absolute;
-  top: 0;
-  left: 24px;
+  display: block;
+  margin: 24px -26px -34px;
+  padding: 14px 26px;
   background: var(--color-primary);
   color: var(--color-white);
-  font-size: 0.7rem;
+  text-align: center;
+  font-size: 0.78rem;
   font-weight: 700;
-  padding: 7px 14px;
-  border-radius: 0 0 10px 10px;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
 }
 
@@ -1550,7 +1627,7 @@ select:focus-visible {
 }
 
 /* Fallback sem JavaScript: o próprio :checked já estiliza o indicador */
-.plan-radio:checked ~ .plan-select-check {
+.plan-radio:checked~.plan-select-check {
   background: var(--color-primary);
   border-color: var(--color-primary);
   color: var(--color-white);
@@ -1986,7 +2063,10 @@ select:focus-visible {
   color: var(--color-white);
 }
 
-/* --------------------------- 16. WHATSAPP FLUTUANTE ------------------------ */
+/* --------------------------- 16. WHATSAPP FLUTUANTE ------------------------
+   position: fixed garante que o botão acompanhe o scroll normalmente do
+   início ao fim da página, inclusive por cima do rodapé — sem a lógica de
+   "encaixe" (dock) que antes o levava para dentro do footer. */
 .whatsapp-float {
   position: fixed;
   right: 26px;
@@ -2002,7 +2082,7 @@ select:focus-visible {
   justify-content: center;
   font-size: 1.6rem;
   box-shadow: var(--shadow-lg);
-  transition: bottom var(--transition-medium), transform var(--transition-fast), background-color var(--transition-fast);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
 }
 
 .whatsapp-float::before {
@@ -2022,16 +2102,21 @@ select:focus-visible {
   color: var(--color-white);
 }
 
-.whatsapp-float.is-docked {
-  position: absolute;
-  bottom: auto;
-  top: -30px;
-}
-
 @keyframes whatsapp-pulse {
-  0% { transform: scale(1); opacity: 0.5; }
-  70% { transform: scale(1.7); opacity: 0; }
-  100% { transform: scale(1.7); opacity: 0; }
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  70% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.7);
+    opacity: 0;
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -2045,8 +2130,13 @@ select:focus-visible {
 }
 
 /* ---------------------------- 17. UTILITÁRIOS ------------------------------ */
-.text-primary-connect { color: var(--color-primary); }
-.fw-display { font-family: var(--font-display); }
+.text-primary-connect {
+  color: var(--color-primary);
+}
+
+.fw-display {
+  font-family: var(--font-display);
+}
 
 ::selection {
   background: var(--color-secondary);
