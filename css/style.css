@@ -379,6 +379,7 @@ select:focus-visible {
     flex: 1 1 auto;
     display: flex !important;
     justify-content: center;
+    margin: 0 24px;
   }
 
   .navbar-toggler-connect {
