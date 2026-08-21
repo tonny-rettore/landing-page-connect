@@ -213,30 +213,28 @@ function initServicesPanel() {
  * ---------------------------------------------------------------------- */
 const CASE_DATA = [
   {
-    name: 'Vértice Moda',
-    segment: 'Varejo de Moda',
-    problem: 'Perfil desorganizado, sem identidade visual definida e baixo engajamento nas redes sociais.',
-    strategy: 'Criação de nova identidade visual para o Instagram, calendário editorial mensal e produção de conteúdo em estúdio.',
-    solutions: 'Captações quinzenais, reels de bastidores e lançamento de coleções, além de organização completa do feed.',
+    name: 'Montra',
+    segment: 'Centro Automotivo',
+    problem: 'Empresa com forte qualidade no atendimento, mas com potencial para ampliar sua presença e reconhecimento no digital.',
+    strategy: 'Posicionamento digital, produção audiovisual e comunicação estratégica para transmitir a excelência dos serviços.',
+    solutions: 'Produção de conteúdos, gestão de redes sociais, campanhas de tráfego pago e construção de autoridade na região.',
     metrics: [
-      { value: '+180%', label: 'Engajamento' },
-      { value: '+3.400', label: 'Novos seguidores' },
-      { value: '+65%', label: 'Vendas via Instagram' },
+      { value: '+882 MIL', label: 'Visualizações' },
+      { value: '+420 MIL', label: 'Contas alcançadas' },
+      { value: '+22 MIL', label: 'Interações' },
     ],
-    images: ['../assets/cases/case-1.svg', '../assets/cases/case-1.svg', '../assets/cases/case-1.svg'],
   },
   {
-    name: 'Oráculo Estética',
-    segment: 'Clínica de Estética',
-    problem: 'Agenda com baixa ocupação e dependência exclusiva de indicações.',
-    strategy: 'Campanhas de tráfego pago segmentadas por procedimento, com página de captura dedicada para agendamentos.',
-    solutions: 'Estruturação de funil de anúncios no Meta Ads, remarketing para visitantes do site e automação de resposta inicial.',
+    name: 'Lottermann',
+    segment: 'Barbearia',
+    problem: 'Qualidade e experiência no atendimento que precisavam ser melhor traduzidas para o ambiente digital.',
+    strategy: 'Criação de uma presença digital alinhada à identidade, ao estilo e à experiência da barbearia.',
+    solutions: 'Produção de reels, conteúdo audiovisual, gestão de redes sociais e posicionamento de marca para gerar reconhecimento regional.',
     metrics: [
-      { value: '+210%', label: 'Agendamentos' },
-      { value: 'R$ 18', label: 'Custo por lead' },
-      { value: '+40%', label: 'Ocupação da agenda' },
+      { value: '+233 MIL', label: 'Visualizações' },
+      { value: '+4,2 MIL', label: 'Interações' },
+      { value: '+39', label: 'Novos seguidores líquidos' },
     ],
-    images: ['../assets/cases/case-2.svg', '../assets/cases/case-2.svg', '../assets/cases/case-2.svg'],
   },
   {
     name: 'Grão Café',
@@ -249,46 +247,6 @@ const CASE_DATA = [
       { value: '+50%', label: 'Movimento no horário alvo' },
       { value: '+4,8★', label: 'Avaliação no Google' },
     ],
-    images: ['../assets/cases/case-3.svg', '../assets/cases/case-3.svg', '../assets/cases/case-3.svg'],
-  },
-  {
-    name: 'Nova Alfa Educação',
-    segment: 'Educação',
-    problem: 'Dificuldade em captar matrículas fora do período de rematrícula.',
-    strategy: 'Automação de atendimento via WhatsApp e campanhas de captação de leads segmentadas por faixa etária.',
-    solutions: 'Fluxo automatizado de qualificação de leads, landing page de matrícula e conteúdo institucional recorrente.',
-    metrics: [
-      { value: '+130%', label: 'Leads qualificados' },
-      { value: '-35%', label: 'Custo por matrícula' },
-      { value: '+22%', label: 'Novas matrículas' },
-    ],
-    images: ['../assets/cases/case-4.svg', '../assets/cases/case-4.svg', '../assets/cases/case-4.svg'],
-  },
-  {
-    name: 'Atlas Imóveis',
-    segment: 'Imobiliária',
-    problem: 'Site institucional desatualizado e sem geração de leads própria.',
-    strategy: 'Desenvolvimento de site institucional com landing pages específicas por empreendimento e otimização de SEO local.',
-    solutions: 'Novo site responsivo, formulários de interesse por imóvel e integração com WhatsApp para atendimento imediato.',
-    metrics: [
-      { value: '+300%', label: 'Leads pelo site' },
-      { value: '-45%', label: 'Tempo de carregamento' },
-      { value: 'Top 3', label: 'No Google local' },
-    ],
-    images: ['../assets/cases/case-5.svg', '../assets/cases/case-5.svg', '../assets/cases/case-5.svg'],
-  },
-  {
-    name: 'Aurora Fit',
-    segment: 'Fitness & Saúde',
-    problem: 'Alto índice de cancelamento de planos e pouca conexão com a comunidade local.',
-    strategy: 'Produção de conteúdo em estúdio com foco em transformação de alunos e campanhas de tráfego pago para vendas de planos.',
-    solutions: 'Captação mensal com alunos reais, stories motivacionais diários e campanha de remarketing para ex-alunos.',
-    metrics: [
-      { value: '+70%', label: 'Novas matrículas' },
-      { value: '-28%', label: 'Cancelamentos' },
-      { value: '+150%', label: 'Interações no perfil' },
-    ],
-    images: ['../assets/cases/case-6.svg', '../assets/cases/case-6.svg', '../assets/cases/case-6.svg'],
   },
 ];
 
@@ -308,6 +266,11 @@ function initCaseModal() {
       modalTitle.textContent = `${data.name} — ${data.segment}`;
 
       modalBody.innerHTML = `
+        <div class="case-results-header">
+          <span class="case-results-kicker">Resultados reais -</span>
+          <strong>Últimos 90 dias</strong>
+        </div>
+
         <div class="case-metrics">
           ${data.metrics
             .map(
@@ -333,15 +296,6 @@ function initCaseModal() {
         <div class="case-block">
           <h6>Soluções implementadas</h6>
           <p>${data.solutions}</p>
-        </div>
-
-        <div class="case-block">
-          <h6>Registros do projeto</h6>
-          <div class="case-gallery">
-            ${data.images
-              .map((src) => `<img src="${src}" alt="Registro do case ${data.name}" loading="lazy">`)
-              .join('')}
-          </div>
         </div>
       `;
     });
