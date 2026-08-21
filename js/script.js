@@ -323,7 +323,6 @@ function initPlanSelector() {
     document.getElementById('customStories'),
     document.getElementById('customTrafego'),
     document.getElementById('customLanding'),
-    document.getElementById('customAutomacoes'),
     document.getElementById('customCaptacao'),
   ].filter(Boolean);
 
@@ -337,7 +336,6 @@ function initPlanSelector() {
       const extraFields = [
         ['customTrafego', 'Tráfego pago'],
         ['customLanding', 'Landing page'],
-        ['customAutomacoes', 'Automações'],
         ['customCaptacao', 'Captação sob demanda'],
       ];
       const extras = extraFields
