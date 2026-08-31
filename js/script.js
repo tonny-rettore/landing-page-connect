@@ -215,37 +215,37 @@ const CASE_DATA = [
   {
     name: 'Montra',
     segment: 'Centro Automotivo',
-    problem: 'Empresa com forte qualidade no atendimento, mas com potencial para ampliar sua presença e reconhecimento no digital.',
-    strategy: 'Posicionamento digital, produção audiovisual e comunicação estratégica para transmitir a excelência dos serviços.',
-    solutions: 'Produção de conteúdos, gestão de redes sociais, campanhas de tráfego pago e construção de autoridade na região.',
+    problem: 'A Montra já entregava qualidade no dia a dia, mas essa percepção ainda não estava sendo transmitida para um público maior no digital.',
+    strategy: 'Criar uma comunicação mais próxima e profissional, mostrando a estrutura, os serviços e a qualidade da empresa através de conteúdo estratégico.',
+    solutions: 'Produção de vídeos, criação de roteiros, gestão de redes sociais e conteúdos voltados para gerar alcance, reconhecimento e autoridade regional.',
     metrics: [
       { value: '+882 MIL', label: 'Visualizações' },
-      { value: '+420 MIL', label: 'Contas alcançadas' },
+      { value: '+900', label: 'Novos Seguidores' },
       { value: '+22 MIL', label: 'Interações' },
     ],
   },
   {
     name: 'Lottermann',
     segment: 'Barbearia',
-    problem: 'Qualidade e experiência no atendimento que precisavam ser melhor traduzidas para o ambiente digital.',
-    strategy: 'Criação de uma presença digital alinhada à identidade, ao estilo e à experiência da barbearia.',
-    solutions: 'Produção de reels, conteúdo audiovisual, gestão de redes sociais e posicionamento de marca para gerar reconhecimento regional.',
+    problem: 'A comunicação mostrava principalmente o serviço, mas ainda não transmitia toda a experiência, personalidade e identidade da Lottermann.',
+    strategy: 'Construir uma identidade digital mais autêntica, mostrando o ambiente, os profissionais e a experiência por trás do serviço.',
+    solutions: 'Produção de reels, criação de roteiros, conteúdo audiovisual, gestão de redes sociais e posicionamento de marca para aproximar a Lottermann do público.',
     metrics: [
       { value: '+233 MIL', label: 'Visualizações' },
       { value: '+4,2 MIL', label: 'Interações' },
-      { value: '+39', label: 'Novos seguidores líquidos' },
+      { value: '+700', label: 'Novos seguidores líquidos' },
     ],
   },
   {
-    name: 'Grão Café',
-    segment: 'Food Service',
-    problem: 'Baixo movimento em horários específicos e pouca visibilidade local.',
-    strategy: 'Produção de reels mostrando bastidores e cardápio, além de otimização do Google Business.',
-    solutions: 'Captação semanal em vídeo, stories diários e campanha local de tráfego pago para horários de menor movimento.',
+    name: 'Stock Car',
+    segment: 'Estética Automotiva',
+    problem: 'A necessidade de ampliar a visibilidade da marca no digital sem transformar sua comunicação em uma sequência de propagandas.',
+    strategy: 'Desenvolver conteúdos mais dinâmicos e interessantes, transformando a rotina da empresa em formatos capazes de gerar atenção e conexão com o público.',
+    solutions: 'Criação de ideias e roteiros, produção audiovisual, gestão de redes sociais, tráfego pago e acompanhamento dos resultados para otimizar a estratégia.',
     metrics: [
-      { value: '+95%', label: 'Visualizações' },
-      { value: '+50%', label: 'Movimento no horário alvo' },
-      { value: '+4,8★', label: 'Avaliação no Google' },
+      { value: '+350 MIL', label: 'Visualizações' },
+      { value: '+90 MIL', label: 'Contas alcançadas' },
+      { value: '+1.000', label: 'Novos seguidores' },
     ],
   },
 ];
@@ -265,10 +265,17 @@ function initCaseModal() {
 
       modalTitle.textContent = `${data.name} — ${data.segment}`;
 
+      const periodTextMap = {
+        'Montra': 'Alguns resultados',
+        'Stock Car': 'Em 30 dias',
+        'Lottermann': 'E os resultados aparecem',
+      };
+
+      const periodText = periodTextMap[data.name] || 'Últimos 90 dias';
+
       modalBody.innerHTML = `
         <div class="case-results-header">
-          <span class="case-results-kicker">Resultados reais -</span>
-          <strong>Últimos 90 dias</strong>
+          <strong>${periodText}</strong>
         </div>
 
         <div class="case-metrics">
