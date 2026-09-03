@@ -1,18 +1,9 @@
-/* =========================================================================
-   CONNECT PRODUÇÕES E MARKETING — LANDING PAGE
-   Folha de estilos principal
-   Paleta oficial:
-     --color-primary        #2F4E8F  (Azul Connect)
-     --color-primary-dark   #1C2F59  (Azul Midnight)
-     --color-secondary      #6E8FD3  (Azul Soft)
-     --color-black           #0A0A0A (Preto)
-     --color-white           #FFFFFF (Branco)
-     --color-gray-light      #F5F7FA (Cinza Claro)
-   ========================================================================= */
+/* == ESTILOS PRINCIPAIS ==
+    Variáveis, layout e componentes da landing page. */
 
-/* --------------------------- 1. DESIGN TOKENS --------------------------- */
+/* == VARIÁVEIS DO TEMA == */
 :root {
-    /* Cores oficiais da marca — nunca alterar/inventar novas cores */
+    /* Cores principais da marca */
     --color-primary: #2F4E8F;
     --color-primary-dark: #1C2F59;
     --color-secondary: #6E8FD3;
@@ -20,7 +11,7 @@
     --color-white: #FFFFFF;
     --color-gray-light: #F5F7FA;
 
-    /* Tons derivados (apenas opacidade/mistura das cores oficiais, não são novas cores) */
+    /* Variações usadas em fundos e bordas */
     --color-primary-08: rgba(47, 78, 143, 0.08);
     --color-primary-12: rgba(47, 78, 143, 0.12);
     --color-primary-20: rgba(47, 78, 143, 0.2);
@@ -30,41 +21,41 @@
     --color-black-40: rgba(10, 10, 10, 0.4);
     --color-black-60: rgba(10, 10, 10, 0.6);
 
-    /* Texto */
+    /* Cores dos textos */
     --text-heading: var(--color-primary-dark);
     --text-body: #38425c;
     --text-muted: #6a7590;
 
-    /* Tipografia */
+    /* Fontes */
     --font-display: 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
     --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
 
-    /* Espaçamento vertical entre seções */
+    /* Espaçamento das seções */
     --section-padding: 140px;
     --section-padding-mobile: 80px;
 
-    /* Raio de borda */
+    /* Cantos arredondados */
     --radius-sm: 10px;
     --radius-md: 18px;
     --radius-lg: 28px;
     --radius-pill: 100px;
 
-    /* Sombras leves */
+    /* Sombras */
     --shadow-sm: 0 2px 12px rgba(28, 47, 89, 0.06);
     --shadow-md: 0 12px 32px rgba(28, 47, 89, 0.10);
     --shadow-lg: 0 24px 60px rgba(28, 47, 89, 0.16);
 
-    /* Transições */
+    /* Ritmo das animações */
     --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
     --transition-fast: 0.25s var(--ease-smooth);
     --transition-medium: 0.45s var(--ease-smooth);
     --transition-slow: 0.8s var(--ease-smooth);
 
-    /* Container */
+    /* Largura do conteúdo */
     --container-width: 1240px;
 }
 
-/* ---------------------------- 2. RESET BASE ----------------------------- */
+/* == BASE == */
 *,
 *::before,
 *::after {
@@ -124,7 +115,7 @@ p {
     margin: 0;
 }
 
-/* Foco visível para acessibilidade / navegação por teclado */
+/* Deixa o foco do teclado fácil de localizar */
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -135,7 +126,7 @@ select:focus-visible {
     border-radius: 4px;
 }
 
-/* Respeitar preferência de redução de movimento */
+/* Reduz as animações quando essa preferência está ativa */
 @media (prefers-reduced-motion: reduce) {
     html {
         scroll-behavior: auto;
@@ -151,7 +142,7 @@ select:focus-visible {
     }
 }
 
-/* ------------------------------ 3. LAYOUT -------------------------------- */
+/* == LAYOUT == */
 .container-custom {
     width: 100%;
     max-width: var(--container-width);
@@ -213,19 +204,19 @@ select:focus-visible {
     line-height: 1.7;
 }
 
-/* Ênfase leve em textos de subtítulo sem alterar tamanho/layout */
+/* Destaque opcional para subtítulos */
 .section-subtitle.emphasis {
     font-weight: 700;
     color: var(--text-heading);
     letter-spacing: -0.01em;
 }
 
-/* Fundo alternado leve para respirar entre seções */
+/* Fundo claro para alternar com as seções brancas */
 .bg-soft {
     background-color: var(--color-gray-light);
 }
 
-/* ------------------------------ 4. BOTÕES -------------------------------- */
+/* == BOTÕES == */
 .btn-connect {
     display: inline-flex;
     align-items: center;
@@ -282,7 +273,7 @@ select:focus-visible {
     font-size: 1.05rem;
 }
 
-/* ------------------------------ 5. NAVBAR -------------------------------- */
+/* == MENU PRINCIPAL == */
 .navbar-connect {
     position: fixed;
     top: 0;
@@ -367,7 +358,7 @@ select:focus-visible {
     white-space: nowrap;
 }
 
-/* Centraliza os nav-links no meio da navbar em telas grandes */
+/* Mantém os links centralizados em telas grandes */
 @media (min-width: 1200px) {
     .navbar-connect .navbar-collapse {
         flex: 1 1 auto;
@@ -381,10 +372,9 @@ select:focus-visible {
     }
 }
 
-/* Estado com scroll: navbar reduzida, com blur e sombra */
+/* Aparência do menu depois que a página rola */
 .navbar-connect.is-scrolled {
-    /* Mantém o mesmo espaçamento/posicionamento do estado inicial
-     para evitar deslocamentos visuais durante o scroll */
+    /* O mesmo espaçamento evita que o menu pule durante o scroll */
     padding: 22px 0;
     background-color: rgba(255, 255, 255, 0.82);
     backdrop-filter: blur(16px) saturate(140%);
@@ -402,7 +392,7 @@ select:focus-visible {
     color: var(--color-primary);
 }
 
-/* Botão hambúrguer — ícone padrão do Bootstrap, recolorido conforme o estado */
+/* Ícone do menu no celular */
 .navbar-toggler-connect {
     border: none;
     padding: 6px;
@@ -423,7 +413,7 @@ select:focus-visible {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(28,47,89,1)' stroke-width='2.4' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h22M4 15h22M4 22h22'/%3E%3C/svg%3E");
 }
 
-/* Painel do menu no mobile (o próprio .collapse do Bootstrap) */
+/* Menu aberto no celular */
 @media (max-width: 1199.98px) {
     .navbar-connect .navbar-collapse {
         position: absolute;
@@ -460,7 +450,7 @@ select:focus-visible {
     }
 }
 
-/* ------------------------------- 6. HERO --------------------------------- */
+/* == HERO == */
 .hero {
     position: relative;
     min-height: 100vh;
@@ -476,7 +466,7 @@ select:focus-visible {
         linear-gradient(160deg, #16233f 0%, #1c2f59 55%, #24397a 100%);
 }
 
-/* Camada de "sinal conectando pontos" — elemento de assinatura da marca */
+/* Rede de pontos que reforça a identidade visual */
 .hero-signal {
     position: absolute;
     inset: 0;
@@ -494,9 +484,9 @@ select:focus-visible {
     z-index: 0;
     background: transparent;
     opacity: 0.55;
-    /* permite enxergar a cor de fundo */
+    /* Deixa o fundo aparecer sob o vídeo */
     mix-blend-mode: multiply;
-    /* mistura o vídeo com o fundo azul */
+    /* Mistura o vídeo com o azul do hero */
     transition: opacity 0.4s ease;
 }
 
@@ -539,7 +529,7 @@ select:focus-visible {
     flex-wrap: wrap;
 }
 
-/* Animações de entrada (reveal) */
+/* Entrada suave dos elementos */
 [data-reveal] {
     opacity: 0;
     transform: translateY(28px);
@@ -579,15 +569,10 @@ select:focus-visible {
     transition-delay: 0.58s;
 }
 
-/* ------------------- 6c. SEÇÃO ESCURA COM TEXTURA DE SINAL ----------------
-   Reaproveita a identidade visual do Hero (fundo azul-midnight + rede de
-   pontos conectados) para quebrar blocos de seções claras e dar mais
-   contraste/vida ao meio da página. Usar junto de um <svg class="section-signal">. */
+/* == SEÇÃO ESCURA ==
+    Usa a mesma rede de pontos do hero para criar contraste no meio da página. */
 
-/* Wrapper que fica atrás da seção diagonal: preenche com o cinza das seções
-   vizinhas (.bg-soft) os cantos que o clip-path corta, evitando o "vazamento"
-   de branco do body nesses triângulos. Não usar pseudo-elemento aqui, pois o
-   clip-path também clipa os filhos da própria .bg-dark-signal. */
+/* Preenche os cantos que a diagonal deixa expostos */
 .diagonal-fill {
     background: var(--color-gray-light);
 }
@@ -600,7 +585,7 @@ select:focus-visible {
         radial-gradient(circle at 15% 25%, rgba(110, 143, 211, 0.28), transparent 45%),
         radial-gradient(circle at 85% 75%, rgba(47, 78, 143, 0.5), transparent 50%),
         linear-gradient(160deg, #16233f 0%, #1c2f59 55%, #24397a 100%);
-    /* Bordas diagonais (não-retas) para separar da seção clara acima/abaixo */
+    /* A diagonal separa esta seção das áreas claras */
     clip-path: polygon(0 0, 100% 56px, 100% 100%, 0 calc(100% - 56px));
     padding-top: calc(var(--section-padding) + 56px);
     padding-bottom: calc(var(--section-padding) + 56px);
@@ -643,7 +628,7 @@ select:focus-visible {
     color: var(--color-white-70);
 }
 
-/* Cards de diferenciais reestilizados em modo "vidro" para o fundo escuro */
+/* Cards adaptados para o fundo escuro */
 .bg-dark-signal .diff-card {
     background: rgba(255, 255, 255, 0.06);
     border-color: rgba(255, 255, 255, 0.14);
@@ -673,7 +658,7 @@ select:focus-visible {
     color: var(--color-white-70);
 }
 
-/* --------------------------- 6b. BARRA DE ESTATÍSTICAS -------------------- */
+/* == NÚMEROS DA CONNECT == */
 .stats-bar {
     background: var(--color-primary-dark);
     padding: 48px 0;
@@ -711,7 +696,7 @@ select:focus-visible {
     color: var(--color-white-70);
 }
 
-/* ------------------------- 7. EMPRESAS ATENDIDAS -------------------------- */
+/* == EMPRESAS ATENDIDAS == */
 .clients-section {
     padding: 72px 0;
     border-bottom: 1px solid rgba(28, 47, 89, 0.06);
@@ -843,7 +828,7 @@ select:focus-visible {
     }
 }
 
-/* ------------------------ 8. RESULTADOS E PROJETOS ------------------------ */
+/* == RESULTADOS E PROJETOS == */
 .cases-section {
     background: var(--color-white);
     padding: 120px 0;
@@ -1011,7 +996,7 @@ select:focus-visible {
     color: var(--color-primary-dark);
 }
 
-/* Modal de case */
+/* Detalhes do projeto */
 .modal-connect .modal-content {
     border-radius: var(--radius-lg);
     border: none;
@@ -1091,7 +1076,7 @@ select:focus-visible {
     }
 }
 
-/* ----------------------------- 9. SERVIÇOS -------------------------------- */
+/* == SERVIÇOS == */
 .services-layout {
     display: grid;
     grid-template-columns: 320px 1fr;
@@ -1269,7 +1254,7 @@ select:focus-visible {
     font-size: 1.2rem;
 }
 
-/* ---------------------------- 10. DIFERENCIAIS ---------------------------- */
+/* == DIFERENCIAIS == */
 .diff-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1333,8 +1318,7 @@ select:focus-visible {
     line-height: 1.65;
 }
 
-/* ------------------------------ 11. PLANOS -------------------------------- */
-/* ------------------------------ 11. PLANOS -------------------------------- */
+/* == PLANOS == */
 .plans-instructions {
     text-align: center;
     color: var(--text-muted);
@@ -1372,9 +1356,7 @@ select:focus-visible {
 }
 
 
-/* Cada plano é um <label> clicável associado a um input radio oculto.
-   overflow: hidden garante que a barra colorida do topo (::before) fique
-   corretamente recortada pelos cantos arredondados no hover/seleção. */
+/* O card inteiro é clicável; o radio fica escondido */
 .plan-card {
     background: var(--color-white);
     border: 2px solid rgba(28, 47, 89, 0.1);
@@ -1444,9 +1426,7 @@ select:focus-visible {
     color: var(--color-white);
 }
 
-/* Badge "Mais escolhido": posicionado atrás do card (z-index menor),
-   com padding-bottom maior para empurrar o texto para a parte que
-   fica visível acima da borda do card. */
+/* Faixa do plano mais escolhido */
 .plan-badge-popular {
     display: block;
     margin: 24px -26px -34px;
@@ -1482,7 +1462,7 @@ select:focus-visible {
     color: var(--color-white);
 }
 
-/* Fallback sem JavaScript: o próprio :checked já estiliza o indicador */
+/* O estado checked também funciona sem JavaScript */
 .plan-radio:checked~.plan-select-check {
     background: var(--color-primary);
     border-color: var(--color-primary);
@@ -1524,7 +1504,7 @@ select:focus-visible {
     flex-shrink: 0;
 }
 
-/* Campos do plano personalizado */
+/* Opções do plano personalizado */
 .plan-custom-fields {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1570,7 +1550,7 @@ select:focus-visible {
     accent-color: var(--color-primary);
 }
 
-/* CTA única para qualquer plano selecionado */
+/* Botão de orçamento */
 .plans-final-cta {
     text-align: center;
     margin-top: 48px;
@@ -1587,7 +1567,7 @@ select:focus-visible {
     font-family: var(--font-display);
 }
 
-/* ------------------------------- 12. SOBRE -------------------------------- */
+/* == SOBRE A CONNECT == */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1706,7 +1686,7 @@ select:focus-visible {
     color: var(--text-muted);
 }
 
-/* -------------------------------- 13. FAQ --------------------------------- */
+/* == PERGUNTAS FREQUENTES == */
 .faq-accordion .accordion-item {
     border: none;
     border-bottom: 1px solid rgba(28, 47, 89, 0.1);
@@ -1760,7 +1740,7 @@ select:focus-visible {
     font-size: 0.95rem;
 }
 
-/* ----------------------------- 14. CTA FINAL ------------------------------ */
+/* == CTA FINAL == */
 .cta-final {
     position: relative;
     overflow: hidden;
@@ -1806,7 +1786,7 @@ select:focus-visible {
     margin-bottom: 40px;
 }
 
-/* Ajustes responsivos para o CTA final (corrige overflow em iPhone/phones estreitos) */
+/* Ajustes do CTA em telas bem estreitas */
 @media (max-width: 420px) {
     .cta-final {
         padding-left: 18px;
@@ -1819,7 +1799,7 @@ select:focus-visible {
     }
 
     .cta-final .btn-lg-block {
-        /* reduz espaçamento horizontal e permite quebra do texto */
+        /* Dá espaço para o texto quebrar sem estourar o botão */
         padding: 12px 18px;
         font-size: 0.95rem;
         white-space: normal;
@@ -1828,7 +1808,7 @@ select:focus-visible {
     }
 }
 
-/* ------------------------------- 15. RODAPÉ -------------------------------- */
+/* == RODAPÉ == */
 .footer-connect {
     background: var(--color-primary-dark);
     color: var(--color-white-70);
@@ -1963,10 +1943,7 @@ select:focus-visible {
     color: var(--color-white);
 }
 
-/* --------------------------- 16. WHATSAPP FLUTUANTE ------------------------
-   position: fixed garante que o botão acompanhe o scroll normalmente do
-   início ao fim da página, inclusive por cima do rodapé — sem a lógica de
-   "encaixe" (dock) que antes o levava para dentro do footer. */
+/* == WHATSAPP FLUTUANTE == */
 .whatsapp-float {
     position: fixed;
     right: 26px;
@@ -2029,13 +2006,13 @@ select:focus-visible {
     }
 }
 
-/* ---------------------------- 17. UTILITÁRIOS ------------------------------ */
+/* == UTILITÁRIOS == */
 ::selection {
     background: var(--color-secondary);
     color: var(--color-white);
 }
 
-/* Scrollbar discreta */
+/* Barra de rolagem */
 ::-webkit-scrollbar {
     width: 10px;
 }
