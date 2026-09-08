@@ -110,6 +110,7 @@ function initStatsCounter() {
     const animateCount = (el) => {
         const target = parseFloat(el.dataset.countTo);
         const decimals = parseInt(el.dataset.decimals || '0', 10);
+        const prefix = el.dataset.prefix || '';
         const suffix = el.dataset.suffix || '';
         const start = performance.now();
 
@@ -118,12 +119,12 @@ function initStatsCounter() {
             // Desacelera no final para a contagem não parar de repente
             const eased = 1 - Math.pow(1 - progress, 3);
             const value = target * eased;
-            el.textContent = value.toFixed(decimals) + suffix;
+            el.textContent = prefix + value.toFixed(decimals) + suffix;
 
             if (progress < 1) {
                 requestAnimationFrame(step);
             } else {
-                el.textContent = target.toFixed(decimals) + suffix;
+                el.textContent = prefix + target.toFixed(decimals) + suffix;
             }
         };
 
@@ -245,31 +246,7 @@ function initCaseModal() {
 
             modalTitle.textContent = `${data.name} — ${data.segment}`;
 
-            const periodTextMap = {
-                'Montra': 'Alguns resultados',
-                'Stock Car': 'Em 30 dias',
-                'Lottermann': 'E os resultados aparecem',
-            };
-
-            const periodText = periodTextMap[data.name] || 'Últimos 90 dias';
-
             modalBody.innerHTML = `
-        <div class="case-results-header">
-          <strong>${periodText}</strong>
-        </div>
-
-        <div class="case-metrics">
-          ${data.metrics
-                    .map(
-                        (m) => `
-            <div class="metric-item">
-              <div class="metric-value">${m.value}</div>
-              <div class="metric-label">${m.label}</div>
-            </div>`
-                    )
-                    .join('')}
-        </div>
-
         <div class="case-block">
           <h6>Problema enfrentado</h6>
           <p>${data.problem}</p>
