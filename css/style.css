@@ -732,9 +732,33 @@ select:focus-visible {
 }
 
 .clients-track-wrapper {
+    position: relative;
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-    mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.clients-fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.clients-fade-left {
+    left: 0;
+    background: linear-gradient(90deg, var(--color-white) 0%, transparent 100%);
+}
+
+.clients-fade-right {
+    right: 0;
+    background: linear-gradient(270deg, var(--color-white) 0%, transparent 100%);
+}
+
+@media (max-width: 575.98px) {
+    .clients-fade {
+        width: 60px;
+    }
 }
 
 .clients-track {
@@ -786,10 +810,9 @@ select:focus-visible {
 }
 
 .client-logo img {
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
     max-height: 100px;
-    width: auto;
-    height: auto;
     object-fit: contain;
 }
 
