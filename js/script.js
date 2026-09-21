@@ -12,7 +12,34 @@ document.addEventListener('DOMContentLoaded', () => {
     initPlanSelector();
     initFooterYear();
     initHeroSignal();
+    initHeroVideo();
 });
+
+/* == VÍDEO DO HERO == */
+function initHeroVideo() {
+    const video = document.querySelector('.hero-bg-video');
+    if (!video) return;
+
+    // Safari/iOS precisa destas propriedades também no objeto, não apenas no HTML.
+    video.defaultMuted = true;
+    video.muted = true;
+    video.playsInline = true;
+
+    const tryToPlay = () => {
+        video.play().then(() => {
+            video.classList.add('is-playing');
+        }).catch(() => {
+            // O iOS pode bloquear autoplay em modo de baixo consumo ou por política do usuário.
+            video.classList.add('autoplay-blocked');
+        });
+    };
+
+    if (video.readyState >= HTMLMediaElement.HAVE_METADATA) {
+        tryToPlay();
+    } else {
+        video.addEventListener('loadedmetadata', tryToPlay, { once: true });
+    }
+}
 
 /* == MENU PRINCIPAL == */
 function initNavbar() {

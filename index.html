@@ -5,6 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWCS00PZQC"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-JWCS00PZQC');
+    </script>
+
     <!-- == SEO == -->
     <title>Connect Produções e Marketing | Marketing e Produção de Conteúdo que Convertem</title>
     <meta name="description"
@@ -130,7 +140,8 @@
 
         <!-- == HERO == -->
         <section class="hero" id="hero" aria-label="Apresentação da Connect">
-            <video class="hero-bg-video" autoplay muted loop playsinline preload="auto">
+            <video class="hero-bg-video" autoplay muted loop playsinline webkit-playsinline preload="auto"
+                aria-hidden="true">
                 <source src="assets/hero/hero-2.2mb.mp4" type="video/mp4">
                 Seu navegador não suporta vídeo em background.
             </video>
